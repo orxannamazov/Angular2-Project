@@ -1,3 +1,4 @@
 # ANGULAR2 PROJECT
-Back-End is written in Java( with help of the spark framework) but did not published it yet.
+Front-End: ANGULAR 2
+Back-End:  Java(Spark framework)
 
