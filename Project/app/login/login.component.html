@@ -1,0 +1,41 @@
+<form (ngSubmit)="login($event, username.value, password.value)">
+    <div class="container">
+        <div class="pen-title">
+            <h1>Welcome</h1>
+        </div>
+
+        <div class="profile profile--open">
+            <div class="profile__form">
+
+                <div class="profile__fields">
+                    <div class="field">
+                        <input type="text" #username id="fieldUser" class="input" required pattern=.*\S.* />
+                        <label for="fieldUser" class="label">Username</label>
+                    </div>
+
+                    <div class="field">
+                        <input type="password" #password id="fieldPassword" class="input" required pattern=.*\S.* />
+                        <label for="fieldPassword" class="label">Password</label>
+                    </div>
+
+                    <div class="profile__footer" align="right">
+                        <button class="button raised blue" type="submit">
+                            <div class="center" fit>LOGIN</div>
+                            <paper-ripple fit></paper-ripple>
+                        </button>
+                    </div>
+                    <br>
+
+                    <div *ngIf="errorMsg">
+                        <div class="alert alert-block alert-danger fade in">
+                            <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="icon-remove"></i>
+                        </button>
+                            <strong>Ops!</strong> {{errorMsg}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

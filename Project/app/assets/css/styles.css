@@ -1,0 +1,23 @@
+#loading {
+        font-size: 30px;
+        position: relative;
+        text-align: center;
+        height: 100%;
+        padding-top: 150px;
+        
+}
+
+tr {
+     text-align: left;
+}
+td{
+     padding:0 10px 0 10px;
+     font-size: 11px;
+}
+th{
+     text-align:right;
+     font-size: 12px;
+}
+
+
+

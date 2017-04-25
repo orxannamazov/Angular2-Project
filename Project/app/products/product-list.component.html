@@ -1,0 +1,147 @@
+<!-- The drawer is always open in large screens. The header is always shown,
+  even in small screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+
+            <!-- Title -->
+            <span class="mdl-layout-title"> {{ pageTitle }}  </span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
+        </label>
+
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample" [(ngModel)]='listFilter' id="fixed-header-drawer-exp">
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">{{ drawerName }}</span>
+        <nav class="mdl-navigation">
+
+            <a class="mdl-navigation__link" (click)="logout()">Logout</a>
+
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <!-- Your content goes here -->
+
+            <section class="container">
+                <div class="page-header">
+                    <h1>
+                        <!--<center>Welcome back!</center>-->
+                    </h1>
+
+
+                    <h2 *ngIf="listFilter"><small> Filtered by: {{ listFilter }}</small></h2>
+
+                </div>
+
+                <div class="row active-with-click" *ngIf='policies && policies.length'>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12" *ngFor='#police of policies | policeFilter:listFilter'>
+
+                        <!--<span class="text-danger"> The selected page<span class="badge">{{currentSelectedPage}}</span> </span>
+                        <br>
+                        <span class="text-danger"> Totoal items per page<span class="badge">{{currentItemsPerPage}}</span>                        </span> <br>-->
+
+                        <!--<div class="form-group">
+                            <img [src]="slides[currentPage-1].image" style="margin:auto;">
+                        </div>-->
+
+
+                        <article class="material-card Indigo">
+
+                            <div style="display:none;">
+
+                                <span>{{police.no}}</span>
+                            </div>
+                            <h2>
+                                <span>{{police.no}} / {{police.tecdit_no}} / {{police.zeyil_no}}</span>
+                                <strong>
+                                    <i class="fa fa-fw fa-star"></i>
+                                    <!--{{ police.sigorta_brut_prim }}-->
+                                </strong>
+                            </h2>
+
+                            <div class="mc-content">
+                                <div class="img-container">
+                                    <!--<img class="img-responsive" [src]='product.imageUrl'>-->
+                                    <center>
+                                        <h3> {{police.sigorta_brut_prim}} {{police.para_birimi_kodu}}</h3>
+                                    </center>
+
+                                </div>
+
+                                <div class="mc-description">
+                                    <!--{{ product.description }}-->
+
+                                    <table style="width:100%">
+                                        <tr>
+                                            <th>Adı:</th>
+                                            <td>{{ police.sb_adi }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Soyadı:</th>
+                                            <td>{{ police.sb_soyadi }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Atasının adı: </th>
+                                            <td>{{ police.baba_adi}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Agentlik/Tali kodu: </th>
+                                            <td>{{ police.acente_kodu}} / {{police.tali_kodu}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Agentliyin adı: </th>
+                                            <td>{{ police.acente_adi }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Poliçe başlama tarixi:</th>
+                                            <td>{{ police.pol_bas_tar}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Poliçe bitiş tarixi:</th>
+                                            <td> {{police.pol_bit_tar}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <a class="mc-btn-action" (click)="viewItem($event)">
+                                <i class="fa fa-bars"></i>
+
+                            </a>
+                            <!--<div class="mc-footer">
+                                <h4> Social </h4>
+                                <a class="fa fa-fw fa-facebook"></a>
+                                <a class="fa fa-fw fa-twitter"></a>
+                                <a class="fa fa-fw fa-linkedin"></a>
+                                <a class="fa fa-fw fa-google-plus"></a>
+                            </div>-->
+                        </article>
+                    </div>
+                    <div class="form-group">
+
+                        <pagination [boundaryLinks]="true" [totalItems]="totalResults" [(ngModel)]="currentPage" (pageChanged)="currentPageChanged($event)"
+                            [maxSize]="maxSize"></pagination>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <!-- End of main content-->
+        </div>
+    </main>
+</div>

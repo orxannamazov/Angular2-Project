@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="/">
+  <title>Cybersoft</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--CSS Libraries -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700' rel='stylesheet' type='text/css'>
+
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+  <!--Material design-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
+  <link rel="stylesheet" href="/app/assets/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/app/assets/css/styles.css">
+
+  <!-- 1. Load libraries -->
+  <!-- IE required polyfills, in this exact order -->
+  <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+  <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+  <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+
+  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+  <!--Required for HTTP-->
+  <script src="node_modules/angular2/bundles/http.dev.js"></script>
+  <!--Requried for Routing-->
+  <script src="node_modules/angular2/bundles/router.dev.js"></script>
+
+  <!--JS FILES-->
+  <script src="/node_modules/material-design-lite/material.min.js"></script>
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"> </script>
+
+  <script src="node_modules/ng2-pagination/dist/ng2-pagination-bundle.js"></script>
+
+  <!-- 2. Configure SystemJS -->
+  <script>
+        System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+  <my-app>
+    <div id="loading">
+      <!-- MDL Spinner Component -->
+      <div class="mdl-spinner mdl-js-spinner is-active"></div>
+    </div>
+  </my-app>
+</body>
+
+</html>
